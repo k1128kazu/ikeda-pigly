@@ -8,6 +8,9 @@ use App\Http\Controllers\WeightLogController;
 use App\Http\Controllers\GoalController;
 use App\Http\Controllers\LoginController;
 
+Route::get('/', function () {
+    return redirect('/login');
+});
 // ---------------------------------------------
 // 認証前：STEP1（メール・パスワード）
 // ---------------------------------------------
