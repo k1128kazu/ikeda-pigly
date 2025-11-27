@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label class="form-label">メールアドレス</label>
                     <input type="email" name="email" class="form-input"
-                        placeholder="名前を入力"
+                        placeholder="メールアドレスを入力"
                         value="{{ old('email') }}" required>
 
                     {{-- メールエラー --}}
@@ -43,7 +43,7 @@
                 <div class="form-group">
                     <label class="form-label">パスワード</label>
                     <input type="password" name="password" class="form-input"
-                        placeholder="名前を入力"
+                        placeholder="パスワードを入力"
                         required>
 
                     {{-- パスワードエラー（← 🔥ここが今回の修正ポイント） --}}
