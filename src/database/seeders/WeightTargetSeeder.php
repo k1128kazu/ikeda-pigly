@@ -7,11 +7,15 @@ use App\Models\WeightTarget;
 
 class WeightTargetSeeder extends Seeder
 {
-    public function run(): void
+    public function run()
     {
-        WeightTarget::create([
-            'user_id'        => 1,      // Test User
-            'target_weight'  => 60.0,   // 目標体重（自然で現実的）
-        ]);
+        WeightTarget::truncate();
+
+        for ($i = 1; $i <= 3; $i++) {
+            WeightTarget::create([
+                'user_id' => $i,
+                'target_weight' => rand(50, 70),
+            ]);
+        }
     }
 }

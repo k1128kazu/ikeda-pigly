@@ -1,0 +1,228 @@
+/* =========================================================
+    PiGLy：ダッシュボード専用 CSS（Figma 完全準拠）
+========================================================= */
+
+/* ----------------------------------
+   上段ヘッダー
+---------------------------------- */
+.header-bar {
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    padding: 16px 32px;
+    margin-bottom: 32px;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #d57bcc;
+}
+
+.header-actions {
+    display: flex;
+    gap: 16px;
+}
+
+.header-btn {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    background: #ffffff;
+    border: 1px solid #cfcfcf;
+    color: #333;
+    cursor: pointer;
+}
+
+.header-btn:hover {
+    background: #f7f7f7;
+}
+
+/* ----------------------------------
+   サマリー 3カード（上段）
+---------------------------------- */
+.summary-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.summary-card-3 {
+    width: 32%;
+    background: #fff;
+    border-radius: 14px;
+    padding: 28px 22px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.summary-title {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.summary-value-big {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.summary-unit {
+    font-size: 18px;
+    color: #777;
+}
+
+/* ----------------------------------
+   検索カード
+---------------------------------- */
+.search-card {
+    background: #fff;
+    padding: 22px 28px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.search-form-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.search-item label {
+    font-size: 12px;
+    color: #555;
+}
+
+.search-item input[type="date"] {
+    padding: 6px 10px;
+    width: 140px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.btn-search {
+    padding: 8px 16px;
+    background: #6b6b6b;
+    color: #fff;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-search:hover {
+    opacity: 0.9;
+}
+
+/* リセットボタン */
+.btn-reset {
+    padding: 8px 16px;
+    background: #aaaaaa;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* ----------------------------------
+   テーブル
+---------------------------------- */
+.list-card {
+    background: #fff;
+    padding: 25px 28px;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.btn-add-data {
+    background: #ff66c4;
+    color: #fff;
+    padding: 9px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.log-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.log-table th {
+    text-align: left;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+    font-weight: bold;
+}
+
+.log-table td {
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.delete-icon {
+    cursor: pointer;
+}
+
+/* ----------------------------------
+   ✨【Aタイプ】丸型ページネーション（Figma仕様）
+---------------------------------- */
+.pagination-area {
+    margin-top: 25px;
+    text-align: center;
+}
+
+/* 親要素 */
+.pagination {
+    display: flex !important;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* ページ番号（丸型） */
+.page-item>.page-link {
+    width: 38px;
+    height: 38px;
+    border-radius: 50% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+    font-weight: 600;
+    color: #d057c3;
+    background: #fff;
+    box-shadow: 0 0 0 1px #d8a3dd inset;
+}
+
+/* ホバー */
+.page-item>.page-link:hover {
+    background: #fbe7ff;
+}
+
+/* アクティブページ（塗りつぶしピンク） */
+.page-item.active>.page-link {
+    background: #d86acf !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+/* 非表示にする表記（Previous / Next / Showing ...） */
+.pagination-info,
+.pagination .disabled {
+    display: none !important;
+}

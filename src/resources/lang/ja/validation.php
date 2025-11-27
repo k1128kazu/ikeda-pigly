@@ -35,7 +35,7 @@ return [
     'ip'                   => ':attributeには、有効なIPアドレスを指定してください。',
     'json'                 => ':attributeには、有効なJSON文字列を指定してください。',
     'max'                  => [
-        'numeric' => ':attributeには、:max以下の数値を指定してください。',
+        'numeric' => '4桁までの数字を入力してください。',
         'file'    => ':attributeには、:max KB以下のファイルを指定してください。',
         'string'  => ':attributeは、:max文字以下にしてください。',
         'array'   => ':attributeの項目は、:max個以下にしてください。',

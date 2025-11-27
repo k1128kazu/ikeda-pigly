@@ -9,7 +9,7 @@ use App\Models\WeightLog;
 class WeightLogController extends Controller
 {
     /**
-     * 一覧表示（Dashboardで使用）
+     * 一覧表示（Dashboard）
      */
     public function index(Request $request)
     {
@@ -40,19 +40,19 @@ class WeightLogController extends Controller
     {
         $request->validate([
             'date'             => ['required', 'date'],
-            'weight'           => ['required', 'numeric'],
-            'calories'         => ['required', 'integer'],    // ★ 正しいカラム
+            'weight'           => ['required', 'numeric', 'max:9999.9'],
+            'calories'         => ['required', 'numeric'],
             'exercise_time'    => ['required'],
-            'exercise_content' => ['nullable', 'string'],     // ★ 正しいカラム
-        ]);
+            'exercise_content' => ['nullable', 'string'],
+        ], $this->messages());   // ← ★ここが重要（追加）
 
         WeightLog::create([
             'user_id'          => Auth::id(),
             'date'             => $request->date,
             'weight'           => $request->weight,
-            'calories'         => $request->calories,         // ★ 正しいキー
+            'calories'         => $request->calories,
             'exercise_time'    => $request->exercise_time,
-            'exercise_content' => $request->exercise_content, // ★ 正しいキー
+            'exercise_content' => $request->exercise_content,
         ]);
 
         return redirect()->route('dashboard')->with('message', '体重ログを登録しました！');
@@ -75,20 +75,20 @@ class WeightLogController extends Controller
     {
         $request->validate([
             'date'             => ['required', 'date'],
-            'weight'           => ['required', 'numeric'],
-            'calories'         => ['required', 'integer'],    // ★ 正しいカラム
+            'weight'           => ['required', 'numeric', 'max:9999.9'],
+            'calories'         => ['required', 'numeric'],
             'exercise_time'    => ['required'],
-            'exercise_content' => ['nullable', 'string'],      // ★ 正しいカラム
-        ]);
+            'exercise_content' => ['nullable', 'string'],
+        ], $this->messages());   // ← ★ここが重要（追加）
 
         $log = WeightLog::where('user_id', Auth::id())->findOrFail($id);
 
         $log->update([
             'date'             => $request->date,
             'weight'           => $request->weight,
-            'calories'         => $request->calories,         // ★ 正しいキー
+            'calories'         => $request->calories,
             'exercise_time'    => $request->exercise_time,
-            'exercise_content' => $request->exercise_content,  // ★ 正しいキー
+            'exercise_content' => $request->exercise_content,
         ]);
 
         return redirect()->route('dashboard')->with('message', '体重ログを更新しました！');
@@ -103,5 +103,23 @@ class WeightLogController extends Controller
         $log->delete();
 
         return redirect()->route('dashboard')->with('message', '体重ログを削除しました！');
+    }
+
+    /**
+     * バリデーションメッセージ（共通）
+     */
+    private function messages()
+    {
+        return [
+            'date.required'             => '日付を入力してください。',
+            'weight.required'           => '体重を入力してください。',
+            'weight.numeric'            => '体重は数値で入力してください。',
+            'weight.max'                => '体重は4桁以内の数字を入力してください。',
+
+            'calories.required'         => '摂取カロリーを入力してください。',
+            'calories.numeric'          => '数値で入力してください。',
+
+            'exercise_time.required'    => '運動時間を入力してください。',
+        ];
     }
 }

@@ -1,0 +1,101 @@
+/* =========================================================
+    PiGLy：認証画面専用 CSS（ログイン / 新規登録）
+========================================================= */
+/* 背景グラデーション（Figma仕様） */
+.auth-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffd6e8, #ffc5e1, #ffb3de, #f9a2e7, #efb3ff, #eac7ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* 認証カード */
+.auth-card {
+    width: 450px;
+    background: #ffffff;
+    padding: 60px 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* ロゴ */
+.auth-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #d57bcc;
+    margin-bottom: 10px;
+}
+
+/* タイトル */
+.auth-title {
+    font-size: 20px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* -------------- 入力欄 -------------- */
+.form-group {
+    text-align: left;
+    margin-bottom: 28px;
+}
+
+.form-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.form-input::placeholder {
+    color: #c9c9c9;
+}
+
+/* バリデーション（赤文字） */
+.error-text {
+    color: #ff6b6b;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+/* -------------- ボタン -------------- */
+.auth-btn {
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(90deg, #b8b9ff, #f9a5d3);
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.auth-btn:hover {
+    opacity: 0.92;
+}
+
+/* -------------- 下部リンク -------------- */
+.auth-link-area {
+    margin-top: 16px;
+}
+
+.auth-link {
+    font-size: 14px;
+    color: #5a73ff;
+    text-decoration: underline;
+}

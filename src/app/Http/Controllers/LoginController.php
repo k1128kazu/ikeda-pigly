@@ -12,31 +12,42 @@ class LoginController extends Controller
      */
     public function show()
     {
-        return view('auth.login');
+        // ★ 戻るボタンで古い画面を表示しない
+        return response()
+            ->view('auth.login')
+            ->header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0')
+            ->header('Pragma', 'no-cache');
     }
 
     /**
-     * ログイン処理（PiGLy 仕様）
+     * ログイン処理
      */
     public function post(LoginRequest $request)
     {
-        // PiGLyのフォームは login_email / login_password ではなく
-        // 現在のフォームは email / password を使用するため
-        // LoginRequest の email / password をそのまま読む。
-
         $credentials = [
             'email'    => $request->email,
             'password' => $request->password,
         ];
 
         if (Auth::attempt($credentials)) {
+
+            // ★ セッション再生成
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+
+            // ★ ログイン成功後のキャッシュも禁止 → 1回目でも必ず /dashboard へ
+            return redirect()->intended('/dashboard')->withHeaders([
+                'Cache-Control' => 'no-store, no-cache, must-revalidate, max-age=0',
+                'Pragma' => 'no-cache',
+            ]);
         }
 
-        return back()->withErrors([
-            'email' => 'ログイン情報が正しくありません。',
-        ])->withInput();
+        return back()
+            ->withErrors(['email' => 'ログイン情報が正しくありません。'])
+            ->withInput()
+            ->withHeaders([
+                'Cache-Control' => 'no-store, no-cache, must-revalidate, max-age=0',
+                'Pragma' => 'no-cache',
+            ]);
     }
 
     /**

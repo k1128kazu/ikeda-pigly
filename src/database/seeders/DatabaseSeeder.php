@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             WeightTargetSeeder::class,
+            WeightLogSeeder::class,
         ]);
 
         // WeightLog を35件作成
